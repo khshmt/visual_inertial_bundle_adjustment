@@ -313,7 +313,7 @@ def run_pipeline(
     estimate = output_path / "estimated_trajectory.txt"
     if trajectory_type == "closed_loop":
         mps_closed_loop_trajectory = (
-            mps_path / "closed_loop_framerate_trajectory.csv"
+            mps_path / "closed_loop_trajectory.csv"
         )
         convert_closed_loop_trajectory(
             mps_closed_loop_trajectory, T_device_imu0, estimate
@@ -404,7 +404,7 @@ if __name__ == "__main__":
         type=str,
         required=True,
         help="Path with MPS estimates (online_calibration.jsonl, and either"
-        + " closed_loop_framerate_trajectory.csv|open_loop_trajectory.csv)",
+        + " closed_loop_trajectory.csv|open_loop_trajectory.csv)",
     )
     parser.add_argument(
         "--trajectory-type",
