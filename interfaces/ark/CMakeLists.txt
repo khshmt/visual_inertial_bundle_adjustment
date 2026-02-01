@@ -71,11 +71,7 @@ if(UNIX AND NOT APPLE)
     find_package(X11)
 endif()
 
-if(${OpenGL_FOUND} AND (NOT UNIX OR APPLE OR X11_FOUND)) 
-    set(COMPILE_GUI_APP True)
-else()
-    set(COMPILE_GUI_APP False)
-endif()
+set(COMPILE_GUI_APP ${OpenGL_FOUND} AND (NOT UNIX OR APPLE OR X11_FOUND))
 
 if(COMPILE_GUI_APP)
     message(STATUS "Everything for building gui library was found.")
